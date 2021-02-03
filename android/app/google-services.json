@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "567838100412",
+    "project_id": "cryptowallet-aqiriel",
+    "storage_bucket": "cryptowallet-aqiriel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567838100412:android:56c22390afcf852ae379b9",
+        "android_client_info": {
+          "package_name": "com.example.crypto_wallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567838100412-l9jrh867u5osl8bjc9dh55iaf2bsao56.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUcrtf7HXtmo5Bv-Ga96gTEaZ503zlLg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567838100412-l9jrh867u5osl8bjc9dh55iaf2bsao56.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "567838100412-bdv1t787gmrct77det9oh3tokd21ii9m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cryptoWallet"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
