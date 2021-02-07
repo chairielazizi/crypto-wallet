@@ -8,6 +8,9 @@ class Authentication extends StatefulWidget {
 }
 
 class _AuthenticationState extends State<Authentication> {
+  TextEditingController emailField = new TextEditingController();
+  TextEditingController passwordField = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +20,61 @@ class _AuthenticationState extends State<Authentication> {
         decoration: BoxDecoration(
           color: Colors.deepPurpleAccent,
         ),
-        child: Text("Ahoy World!"),
+        child: Column(
+          children: [
+            TextFormField(
+              controller: emailField,
+              decoration: InputDecoration(
+                hintText: "sifulan@email.com",
+                hintStyle: TextStyle(
+                  color: Colors.white,
+                ),
+                labelText: "Email",
+                labelStyle: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            TextFormField(
+              controller: passwordField,
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: "abcd1234",
+                hintStyle: TextStyle(
+                  color: Colors.white,
+                ),
+                labelText: "Password",
+                labelStyle: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width / 1.4,
+              height: 45,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+                color: Colors.white,
+              ),
+              child: MaterialButton(
+                onPressed: () {},
+                child: Text("Register"),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width / 1.4,
+              height: 45,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+                color: Colors.white,
+              ),
+              child: MaterialButton(
+                onPressed: () {},
+                child: Text("Login"),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
