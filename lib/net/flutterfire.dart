@@ -21,7 +21,7 @@ Future<bool> register(String email, String password) async {
     if (e.code == 'weak-password') {
       print('The provided password is too weak');
     } else if (e.code == 'email-already-in-use') {
-      print('The provided emailhas already been used for another account');
+      print('The provided email has already been used for another account');
     }
     return false;
   } catch (e) {
