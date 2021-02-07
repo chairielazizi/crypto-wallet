@@ -1,4 +1,7 @@
+import 'package:crypto_wallet/net/flutterfire.dart';
 import 'package:flutter/material.dart';
+
+import 'homeview.dart';
 
 class Authentication extends StatefulWidget {
   Authentication({Key key}) : super(key: key);
@@ -63,6 +66,12 @@ class _AuthenticationState extends State<Authentication> {
                       await register(emailField.text, passwordField.text);
                   if (navigate) {
                     //navigate
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeView(),
+                      ),
+                    );
                   }
                 },
                 child: Text("Register"),
@@ -81,6 +90,12 @@ class _AuthenticationState extends State<Authentication> {
                       await signIn(emailField.text, passwordField.text);
                   if (navigate) {
                     //navigate
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeView(),
+                      ),
+                    );
                   }
                 },
                 child: Text("Login"),
