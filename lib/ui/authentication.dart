@@ -21,6 +21,7 @@ class _AuthenticationState extends State<Authentication> {
           color: Colors.deepPurpleAccent,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextFormField(
               controller: emailField,
@@ -57,7 +58,13 @@ class _AuthenticationState extends State<Authentication> {
                 color: Colors.white,
               ),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () async {
+                  bool navigate =
+                      await register(emailField.text, passwordField.text);
+                  if (navigate) {
+                    //navigate
+                  }
+                },
                 child: Text("Register"),
               ),
             ),
@@ -69,7 +76,13 @@ class _AuthenticationState extends State<Authentication> {
                 color: Colors.white,
               ),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () async {
+                  bool navigate =
+                      await signIn(emailField.text, passwordField.text);
+                  if (navigate) {
+                    //navigate
+                  }
+                },
                 child: Text("Login"),
               ),
             ),
