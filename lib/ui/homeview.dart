@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crypto_wallet/net/apimethod.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +14,34 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  double bitcoin = 0.0;
+  double ethereum = 0.0;
+  double tether = 0.0;
+
+  @override
+  void initState() {
+    getValues();
+  }
+
+  getValues() async {
+    bitcoin = await getPrice("bitcoin");
+    bitcoin = await getPrice("ethereum");
+    bitcoin = await getPrice("tether");
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
+    getValue(String id, double amount) {
+      if (id == "bitcoin") {
+        return bitcoin * amount;
+      } else if (id == "ethereum") {
+        return ethereum * amount;
+      } else {
+        return tether * amount;
+      }
+    }
+
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -44,6 +71,8 @@ class _HomeViewState extends State<HomeView> {
                         children: [
                           Text("Coin Name: ${document.id}"),
                           Text("Amount Owned: ${document.data()['Amount']}"),
+                          Text(
+                              "Amount Owned: MYR${getValue(document.id, document.data()['Amount']).toStringAsFixed(2)}"),
                         ],
                       ),
                     );
