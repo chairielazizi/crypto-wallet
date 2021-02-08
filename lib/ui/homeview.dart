@@ -27,7 +27,7 @@ class _HomeViewState extends State<HomeView> {
               stream: FirebaseFirestore.instance
                   .collection('Users')
                   .doc(FirebaseAuth.instance.currentUser.uid)
-                  .collection('coins')
+                  .collection('Coins')
                   .snapshots(),
               builder: (BuildContext context,
                   AsyncSnapshot<QuerySnapshot> snapshot) {
