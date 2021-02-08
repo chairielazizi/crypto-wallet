@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crypto_wallet/net/apimethod.dart';
+import 'package:crypto_wallet/net/flutterfire.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -79,20 +80,42 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.deepPurple[400],
                         ),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            // add padding
+                            SizedBox(
+                              width: 5.0,
+                            ),
                             Text(
-                              "Coin Name: ${document.id}",
+                              "Coin: ${document.id}",
                               style: TextStyle(
+                                fontSize: 18.0,
                                 color: Colors.white,
                               ),
                             ),
-                            Text("Owned: ${document.data()['Amount']}"),
+                            Text(
+                              "Owned: ${document.data()['Amount']}",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white,
+                              ),
+                            ),
                             Text(
                               "MYR${getValue(document.id, document.data()['Amount']).toStringAsFixed(2)}",
                               style: TextStyle(
+                                fontSize: 18.0,
                                 color: Colors.white,
                               ),
+                            ),
+                            IconButton(
+                              icon: Icon(
+                                Icons.close,
+                                color: Colors.red,
+                              ),
+                              onPressed: () async {
+                                await removeCoin(document.id);
+                                print("Remove coin");
+                              },
                             ),
                           ],
                         ),
